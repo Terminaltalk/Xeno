@@ -6,7 +6,7 @@ const DiscordStrategy = require('passport-discord').Strategy;
 const app = express();
 
 app.use(session({
-    secret: 'EIIE1K6oK6h48UOPXNIlbtGE36auUJWK',
+    secret: '6aba8a3fbff6cc3b4d25d89d66cbb1d287a6c9cd91858a7f6bd7e97b4b0807ff',
     resave: false,
     saveUninitialized: false
 }));
@@ -43,10 +43,11 @@ app.get('/auth/discord/callback', passport.authenticate('discord', {
 
 app.get('/success', (req, res) => {
     // This is the specific page where the user is redirected after successful authentication
-    res.send('You have successfully authorized your account. Welcome to our website!');
+    // Render the user's Discord profile picture
+    const { avatar } = req.user;
+    res.send(`<img src="${avatar}" alt="Discord Profile Picture">`);
 });
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
-
