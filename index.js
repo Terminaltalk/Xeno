@@ -6,7 +6,7 @@ const DiscordStrategy = require('passport-discord').Strategy;
 const app = express();
 
 app.use(session({
-    secret: 'your_secret_key',
+    secret: 'EIIE1K6oK6h48UOPXNIlbtGE36auUJWK',
     resave: false,
     saveUninitialized: false
 }));
